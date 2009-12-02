@@ -1,0 +1,6 @@
+(define (a-plus-abs-b a b)
+  ((if (> b 0) + -) a b))
+
+;; If b is non-negative, it adds its value to a
+;; If b is negative, it substracts its value from a
+;; This is equivalent to (+ a (abs b)) if there were an abs procedure
