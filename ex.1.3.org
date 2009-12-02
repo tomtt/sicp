@@ -1,0 +1,43 @@
+;; First: a procedure returning the largest number
+(define (largest-of-three-arguments a b c)
+        (define largest (cond ((and (> a b) (> a c)) a)
+                              ((> b c) b)
+                              (else c))))
+
+;; Next: a procedure returning the medium number
+(define (medium-of-three-arguments a b c)
+        (define medium (if (and (> a b) (> a c))
+                           (if (> b c)
+                               b
+                               c)
+                           (if (and (> b a) (> b c))
+                               (if (> a c)
+                                   a
+                                   c)
+                               (if (> a b)
+                                   a
+                                   b))))
+       medium)
+
+;; Finally combine those in one procedure to return the sum of squares
+;; of the largest two numbers
+(define (sum-of-squares-of-largest-two-numbers a b c)
+        (define largest (cond ((and (> a b) (> a c)) a)
+                              ((> b c) b)
+                              (else c)))
+        (define medium (if (and (> a b) (> a c))
+                           (if (> b c)
+                               b
+                               c)
+                           (if (and (> b a) (> b c))
+                               (if (> a c)
+                                   a
+                                   c)
+                               (if (> a b)
+                                   a
+                                   b))))
+        (+ (* largest largest)
+           (*  medium medium)))
+
+(sum-of-squares-of-largest-two-numbers 4 1 2)
+;Value: 20
