@@ -1,3 +1,5 @@
+;; Assuming one is not supposed to define other procedures:
+
 ;; First: a procedure returning the largest number
 (define (largest-of-three-arguments a b c)
         (define largest (cond ((and (> a b) (> a c)) a)
@@ -41,3 +43,14 @@
 
 (sum-of-squares-of-largest-two-numbers 4 1 2)
 ;Value: 20
+
+;; A nicer way to do the same:
+(define (square x) (* x x))
+(define (sum-of-squares x y) (+ (square x) (square y)))
+(define (first-argument-is-smaller-than-the-others a b c)
+        (and (< a b) (< a c)))
+(define (nicer-sum-of-squares-of-largest-two-numbers a b c)
+        (cond ((first-argument-is-smaller-than-the-others a b c) (sum-of-squares b c))
+              ((first-argument-is-smaller-than-the-others b a c) (sum-of-squares a c))
+              (else (sum-of-squares a b))))
+(nicer-sum-of-squares-of-largest-two-numbers 4 1 2)
