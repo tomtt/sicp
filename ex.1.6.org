@@ -1,0 +1,5 @@
+;; With the standard if statement, the interpreter can immediately
+;; decide which argument to use and that is the only one it needs to
+;; evaluate. If a procedure is used for if then both operands need to
+;; be evaluated and the sqrt-iter procedure will never halt because it
+;; will always call itself recursively.
