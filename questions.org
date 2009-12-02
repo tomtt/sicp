@@ -1,0 +1,2 @@
+* Tail-recursion (p 35): I would assume that Ruby is tail-recursive. What test could be used to
+  determine if this is true?
