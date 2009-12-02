@@ -1,0 +1,27 @@
+(define (+a x y)
+  (if (= x 0)
+    y
+    (inc (+a (dec x) y))))
+
+(+a 4 5)
+;; (inc (+a 3 5))
+;; (inc (inc (+a 2 5)))
+;; (inc (inc (inc (+a 1 5))))
+;; (inc (inc (inc (inc (+a 0 5)))))
+;; (inc (inc (inc (inc 5))))
+;; (inc (inc (inc 6)))
+;; (inc (inc 7))
+;; (inc 8)
+;; 9
+
+(define (+b x y)
+  (if (= x 0)
+    y
+    (+b (dec a) (inc b))))
+
+(+b 4 5)
+;; (+b 3 6)
+;; (+b 2 7)
+;; (+b 1 8)
+;; (+b 0 9)
+;; 9
